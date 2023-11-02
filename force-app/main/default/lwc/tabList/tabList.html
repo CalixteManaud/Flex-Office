@@ -1,0 +1,41 @@
+<template>
+    <div>
+        <h1>Tables disponibles</h1>
+        <lightning-card title="Liste des tables disponibles" icon-name="custom:custom51">
+            <div class="slds-var-p-around_medium">
+                <!-- Table to display available tables -->
+                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
+                    <thead>
+                        <tr class="slds-line-height_reset">
+                            <th scope="col">
+                                <div class="slds-truncate" title="Nom de la table">Nom de la table</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Équipement disponible">Équipement disponible</div>
+                            </th>
+                            <th scope="col">
+                                <div class="slds-truncate" title="Météo">Météo</div>
+                            </th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <!-- Use a for:each directive to iterate over the available tables -->
+                        <template for:each={availableTables} for:item="table">
+                            <tr key={table.Id}>
+                                <th scope="row">
+                                    <div class="slds-truncate" title={table.Name}>{table.Name}</div>
+                                </th>
+                                <td>
+                                    <div class="slds-truncate" title={table.Equipment__c}>{table.Equipment__c}</div>
+                                </td>
+                                <td>
+                                    <div class="slds-truncate" title={table.Weather__c}>{table.Weather__c}</div>
+                                </td>
+                            </tr>
+                        </template>
+                    </tbody>
+                </table>
+            </div>
+        </lightning-card>
+    </div>
+</template>
