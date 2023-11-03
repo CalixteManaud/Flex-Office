@@ -1,0 +1,33 @@
+/* Ajoutez ici vos styles CSS personnalisés pour le composant reservationEdit */
+
+.slds-card {
+    padding: 1rem;
+}
+
+.slds-grid {
+    margin: 0;
+}
+
+.slds-col {
+    padding: 0.5rem;
+}
+
+.confirmation-message {
+    background-color: #ffcccc;
+    border: 1px solid #ff0000;
+    padding: 10px;
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.confirmation-message p {
+    margin: 0;
+    font-size: 16px;
+}
+
+.confirmation-message lightning-button-group {
+    margin-top: 10px;
+}
+
+
+/* Vous pouvez ajouter d'autres styles personnalisés selon vos besoins. */

@@ -1,13 +1,27 @@
 public with sharing class WeatherController {
 
-    @AuraEnabled(cacheable=true)
-    public static String getWeatherByLocation(String latitude, String longitude){
-        String apikey = '6991659b348c24332e21726b46583634';
-        String endpoint = 'https://api.openweathermap.org/data/2.5/weather';
-        String units = 'metric';
+    static Api_Waether__mdt apiweather;
+    static {
+        apiweather = [
+            SELECT URL__c, Token__c, Units__c, Langue__c
+            FROM Api_Waether__mdt
+            WHERE DeveloperName = 'Weather'
+        ];
+    }
 
-        // Créer l'url pour l'appel à l'API en utilisant les coordonnées
-        String apiUrl = endpoint + '?lat=' + latitude + '&lon=' + longitude + '&units=' + units + '&appid=' + apikey;
+    @AuraEnabled(cacheable=true)
+    public static String getWeatherByLocation(String latitude, String longitude, Date selectedDate){
+        String apikey = apiweather.Token__c;
+        String endpoint = apiweather.URL__c;
+        String units = apiweather.Units__c;
+        String language = apiweather.Langue__c;
+
+        // Convertir la date en format UNIX timestamp (secondes depuis le 1er janvier 1970)
+        Long unixTimestamp = Datetime.newInstance(selectedDate, Time.newInstance(0, 0, 0, 0)).getTime() / 1000;
+
+        // Créer l'URL pour l'appel à l'API en utilisant les coordonnées, la date, la langue
+        String apiUrl = endpoint + '?lat=' + latitude + '&lon=' + longitude + '&dt=' + unixTimestamp + '&exclude=minutely&units=' + units + '&lang=' + language + '&appid=' + apikey;
+
 
         // Appel à l'API
         Http http = new Http();
@@ -17,10 +31,11 @@ public with sharing class WeatherController {
 
         HttpResponse response = http.send(request);
 
-        if (response.getStatusCode() == 200)
+        if (response.getStatusCode() == 200){
+            System.debug('Response: ' + response.getBody());
             return response.getBody();
+        }
         else
             throw new System.CalloutException('Erreur lors de l\'appel à l\'API');
     }
-
 }

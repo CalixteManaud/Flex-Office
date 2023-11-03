@@ -1,78 +1,38 @@
 import { LightningElement, api, track } from 'lwc';
-import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-import updateReservation from '@salesforce/apex/ReservationController.updateReservation';
-import cancelReservation from '@salesforce/apex/ReservationController.cancelReservation';
+import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 
 export default class ReservationEdit extends LightningElement {
-    @api tableName;
-    @api reservationDate;
-    @api reservationTime;
+    @api reservationId;
+    @api tableId;
+    selectedDate;
+    weatherData;
+    isLoading = false;
 
-    @track newReservationDate;
-    @track newReservationTime;
-    @track cancellationReason;
+    // Méthode pour obtenir la position de l'utilisateur
+    getCurrentPosition() {
+        if (navigator.geolocation){
+            navigator.geolocation.getCurrentPosition(position => {
+                const latitude = position.coords.latitude;
+                const longitude = position.coords.longitude;
 
-    @track canEdit = false;
-    @track canCancel = false;
-
-    handleDateChange(event) {
-        this.newReservationDate = event.target.value;
-    }
-
-    handleTimeChange(event) {
-        this.newReservationTime = event.target.value;
-    }
-
-    handleReasonChange(event) {
-        this.cancellationReason = event.target.value;
-    }
-
-    handleSave () {
-        // Call the updateReservation Apex method
-        updateReservation({
-            // Pass reservation ID or other necessary parameters
-            newReservationDate: this.newReservationDate,
-            newReservationTime: this.newReservationTime
-        })
-        .then(result => {
-            this.ShowToastEvent('Reservation modifiée avec succès');
-        })
-        .catch(error => {
-            this.ShowToastEvent('Erreur lors de la modification de la réservation');
+                // Appel à la méthode getWeatherByLocation du WeatherController avec la position et la date
+                getWheaterData({latitude, longitude, date: this.selectedDate})
+                    .then(data => {
+                        this.weatherData = JSON.parse(data);
+                        this.isLoading = false;
+                    })
+                    .catch(error => {
+                        console.error('Erreur lors de la récupération des données météo:', error);
+                        this.isLoading = false;
+                    });
         });
+    } else {
+        console.error('La géolocalisation n\'est pas prise en charge par ce navigateur.');
     }
 
-    handleCancel() {
-        // Call the cancelReservation method to cancel the reservation
-        cancelReservation({ 
-            // Pass reservation ID and cancellation reason
-            cancellationReason: this.cancellationReason
-        })
-        .then(result => {
-            this.showSuccessToast('Réservation annulée avec succès.');
-            // Perform any necessary post-cancellation actions
-        })
-        .catch(error => {
-            this.showErrorToast('Erreur lors de l\'annulation de la réservation.');
-        });
-    }
-
-    showSuccessToast(message){
-        const event = new ShowToastEvent({
-            title: 'Succès',
-            message: message,
-            variant: 'success'
-        });
-        this.dispatchEvent(event);
-    }
-
-    showErrorToast(message){
-        const event = new ShowToastEvent({
-            title: 'Erreur',
-            message: message,
-            variant: 'error'
-        });
-        this.dispatchEvent(event);
+    handleWeatherData(data) {
+        this.weatherData = JSON.parse(data);
+        this.isLoading = false;
     }
 
 }
