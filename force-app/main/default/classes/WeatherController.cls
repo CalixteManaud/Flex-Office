@@ -1,16 +1,23 @@
 public with sharing class WeatherController {
+    private String latitude;
+    private String longitude;
+    private Date selectedDate;
+    private Api_Waether__mdt apiweather;
 
-    static Api_Waether__mdt apiweather;
-    static {
-        apiweather = [
-            SELECT URL__c, Token__c, Units__c, Langue__c
+    public WeatherController(String lat, String lon, Date dt) {
+        latitude = lat;
+        longitude = lon;
+        selectedDate = dt;
+
+        // Récupérer les valeurs de l'objet de type Custom Metadata
+        apiweather = [SELECT URL__c, Token__c, Units__c, Langue__c
             FROM Api_Waether__mdt
-            WHERE DeveloperName = 'Weather'
-        ];
+            WHERE DeveloperName = 'Weather'];
     }
 
     @AuraEnabled(cacheable=true)
-    public static String getWeatherByLocation(String latitude, String longitude, Date selectedDate){
+    public String getWeatherByLocation() {
+        // Utilisez les variables membres pour obtenir les valeurs nécessaires
         String apikey = apiweather.Token__c;
         String endpoint = apiweather.URL__c;
         String units = apiweather.Units__c;
@@ -22,13 +29,11 @@ public with sharing class WeatherController {
         // Créer l'URL pour l'appel à l'API en utilisant les coordonnées, la date, la langue
         String apiUrl = endpoint + '?lat=' + latitude + '&lon=' + longitude + '&dt=' + unixTimestamp + '&exclude=minutely&units=' + units + '&lang=' + language + '&appid=' + apikey;
 
-
         // Appel à l'API
         Http http = new Http();
         HttpRequest request = new HttpRequest();
         request.setEndpoint(apiUrl);
         request.setMethod('GET');
-
         HttpResponse response = http.send(request);
 
         if (response.getStatusCode() == 200){
