@@ -294,37 +294,37 @@ export default class ReservationEdit extends LightningElement {
             case 2108:
                 return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmq3u&operationContext=DELIVERY&contentId=05T2o00002FXN10&page=0&d=/a/2o000000r2bI/CNQwGVX9DgQ5I.KaI_3vX1XNtg7Bv99Fpc_TRSjThg4&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4000:
-                return `${imagePath}40000_drizzle_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOF&operationContext=DELIVERY&contentId=05T2o00002FXNnd&page=0&d=/a/2o000000r2bN/bJGZTtZzXVUHr7SLWn.lYOZ7Y1pPErQpVLu7FbXkpeA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4200:
-                return `${imagePath}42000_rain_light_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOG&operationContext=DELIVERY&contentId=05T2o00002FXNns&page=0&d=/a/2o000000r2bO/eaWqDyB61KlB9XpmyFXbzz79W_cuEhBF1EjzG252od8&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4001:
-                return `${imagePath}40010_rain_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqHa&operationContext=DELIVERY&contentId=05T2o00002FXNnn&page=0&d=/a/2o000000r2bS/QqrdcS9TvZ72iupL4jMDqh8MG.75b4D9QOapTj9TO9Q&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4201:
-                return `${imagePath}42010_rain_heavy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOP&operationContext=DELIVERY&contentId=05T2o00002FXNjN&page=0&d=/a/2o000000r2bX/KKhVe_rT9YtgBXuZuCiSyYgIHEH_VkN4X6reQkl5yU0&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4203:
-                return `${imagePath}42030_drizzle_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOP&operationContext=DELIVERY&contentId=05T2o00002FXNjN&page=0&d=/a/2o000000r2bX/KKhVe_rT9YtgBXuZuCiSyYgIHEH_VkN4X6reQkl5yU0&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4204:
-                return `${imagePath}42040_drizzle_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOI&operationContext=DELIVERY&contentId=05T2o00002FXNo2&page=0&d=/a/2o000000r2bY/5ngFvrjBcWbTC4uvGPjFWMk7Nu6m3RorGyQQRCI1KdU&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4205:
-                return `${imagePath}42050_drizzle_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOJ&operationContext=DELIVERY&contentId=05T2o00002FXNo7&page=0&d=/a/2o000000r2bc/TGGlOCBQnzW8Bh1YpxohprW4A_EoVlQp2tMAEKscnUg&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4213:
-                return `${imagePath}42130_rain_light_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPU&operationContext=DELIVERY&contentId=05T2o00002FXNrQ&page=0&d=/a/2o000000r2bh/1XDof5qeMWbwn9QW.WErXCzX9BDV7Zwwg6AolY6ZFJw&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4214:
-                return `${imagePath}42140_rain_light_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPV&operationContext=DELIVERY&contentId=05T2o00002FXNrV&page=0&d=/a/2o000000r2bQ/WnWYnajjDjazZRCjobw9YybCVs.LF7oqJNLAGTp0u6w&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4215:
-                return `${imagePath}42150_rain_light_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPX&operationContext=DELIVERY&contentId=05T2o00002FXNra&page=0&d=/a/2o000000r2bm/AOXd8BK.ALiv2GbIo0g9hTDtj42aBuJK69pvbSSFC98&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4209:
-                return `${imagePath}42090_rain_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOR&operationContext=DELIVERY&contentId=05T2o00002FXNrG&page=0&d=/a/2o000000r2br/22838dljY3QaeQSacnhBWuUXhhOSBeNPfrgoE38oD24&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4208:
-                return `${imagePath}42080_rain_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPN&operationContext=DELIVERY&contentId=05T2o00002FXNrB&page=0&d=/a/2o000000r2bw/_C4MD_QBvmMCBEDZvsdCrdEddJ_FP_AqTBVBnUyjwwA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4210:
-                return `${imagePath}42100_rain_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPS&operationContext=DELIVERY&contentId=05T2o00002FXNfB&page=0&d=/a/2o000000r2bx/JH.f1yyS4k7z5hvvl4BaVAeqChLlagnO1CQe6xz._bU&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4211:
-                return `${imagePath}42110_rain_heavy_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqPT&operationContext=DELIVERY&contentId=05T2o00002FXNrL&page=0&d=/a/2o000000r2bn/TjoZg1HY4nPH_Z0qLuYZ2.sgnk52OgywZ4mmorUTo7o&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4202:
-                return `${imagePath}42020_rain_heavy_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqOQ&operationContext=DELIVERY&contentId=05T2o00002FXNr6&page=0&d=/a/2o000000r2bo/kr7uf7rrCm9C7s6KG0p08xN1YieJ7seuF0YwlZRnepo&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4212:
-                return `${imagePath}42120_rain_heavy_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQQ&operationContext=DELIVERY&contentId=05T2o00002FXNuA&page=0&d=/a/2o000000r2bs/ux3Zq_wK5Kfs9QhTsdHUiGdkx_lhxJJdjt0yI4J4mvY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5001:
                 return `${imagePath}50010_flurries_large.png`;
             case 5100:
