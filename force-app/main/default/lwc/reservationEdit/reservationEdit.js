@@ -1,11 +1,10 @@
 import { LightningElement, api, track } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
-import images from '@salesforce/resourceUrl/images';
+//import images from '@salesforce/resourceUrl/images';
 export default class ReservationEdit extends LightningElement {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
-    carouselInterval = 5000;
     async handleCityChange(event){
          this.currentCity = event.target.value;
     }
@@ -51,7 +50,6 @@ export default class ReservationEdit extends LightningElement {
                     second: 'numeric',
                     timeZone: 'UTC' // Vous pouvez ajuster le fuseau horaire si nécessaire
                 });
-                console.log('Date : ', formattedate);
                 const weatherCodeMax = timeline.values.weatherCodeMax;
 
                 return{
@@ -64,7 +62,6 @@ export default class ReservationEdit extends LightningElement {
                     visibility: timeline.values.visibilityMax,
                 };
             }));
-            console.log('this.table : ', this.table);
             return this.table;
         } catch (error) {
             console.error('Erreur lors de la manipulation des données météo :', error);
@@ -456,6 +453,17 @@ export default class ReservationEdit extends LightningElement {
                 return `${imagePath}80020_tstorm_mostly_cloudy_large.png`;
             default:
                 return '';
+        }
+    }
+
+    async handleImageClick (event){
+        const selectedDate = event.detail.item.header; // Récupération de la date sélectionnée
+        const selectedDay = this.table.find(day => day.date === selectedDate); // Récupération des données météo du jour sélectionné
+
+        if (selectedDay && this.shouldShowConfirmation(selectedDay.description)) {
+            const confirmationMessage = `Êtes-vous sûr de vouloir réserver pour ${selectedDate}?`;
+            if (window.confirm(confirmationMessage))
+                this.handleSaveReservation(selectedDay);
         }
     }
 }
