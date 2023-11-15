@@ -1,7 +1,7 @@
 public with sharing class WeatherController {
-    // Méthode pour récupérer la météo par coordonnées
+    
     @AuraEnabled(cacheable=true)
-    public static String getWeatherByLocation(String location) {
+    public static Map<String, Object> getWeatherByLocation(String location) {
         // Récupérer les valeurs de l'objet de type Custom Metadata
         Api_Weather_V2__mdt apiweather = [SELECT URL__c, token__c, units__c, timesteps__c
             FROM Api_Weather_V2__mdt
@@ -24,10 +24,15 @@ public with sharing class WeatherController {
         HttpResponse response = http.send(request);
 
         if (response.getStatusCode() == 200) {
-            System.debug('Response: ' + response.getBody());
-            return response.getBody();
+            Map<String, Object> weatherDataMap = new Map<String, Object>();
+            weatherDataMap.put('body', response.getBody());
+            weatherDataMap.put('status', 'success');
+            return weatherDataMap;
         } else {
-            throw new System.CalloutException('Erreur lors de l\'appel à l\'API');
+            Map<String, Object> errorMap = new Map<String, Object>();
+            errorMap.put('status', 'error');
+            errorMap.put('message', 'Error: ' + response.getStatusCode() + ' ' + response.getStatus());
+            return errorMap;
         }
     }
 }

@@ -3,27 +3,29 @@
         <div class="slds-m-around_medium">
             <div class="slds-grid slds-gutters">
                 <div class="slds-col slds-size_1-of-2">
-                    <lightning-input label="Date de début" type="date" name="reservationStartDate"></lightning-input>
-                    <lightning-input label="Heure de début" type="date" name="reservationStartTime"></lightning-input>
-                    <lightning-input label="Table réservée" type="text" name="reservedTable" value={tableId} disabled></lightning-input>
-                </div>
-                <div class="slds-col slds-size_1-of-2">
-                    <lightning-textarea label="Raison de la modification/annulation" name="cancellationReason"></lightning-textarea>
-                    <lightning-combobox label="Nouveau statut de la réservation" name="newReservationStatus" value="Annulation" options={reservationStatusOptions}></lightning-combobox>
+                    <lightning-input label="Ville actuelle" type="text" name="currentCity" value={currentCity} onchange={handleCityChange}></lightning-input>
                 </div>
             </div>
-            <div class="slds-m-top_medium">
-                <lightning-button label="Enregistrer" variant="brand" onclick={handleSave}></lightning-button>
-                <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
+            <div class="slds-col slds-size_1-of-2">
+                <div class="slds-size_3-of-4 slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                    <lightning-carousel disabled-auto-scroll>
+                        <template for:each={table} for:item="day">
+                            <lightning-carousel-image
+                                key={day.date}
+                                src={day.imageSrc}
+                                header={day.date}
+                                description={day.description}
+                                alternative-text={day.date}
+                                href="#"
+                            ></lightning-carousel-image>
+                        </template>
+                    </lightning-carousel>
+                </div>
             </div>
-            <div if:true={showConfirmationMessage} class="confirmation-message">
-                <p>La météo indique {weatherCondition} le jour de la réservation.</p>
-                <p>Souhaitez-vous confirmer la réservation malgré la météo ?</p>
-                <lightning-button-group>
-                    <lightning-button label="Confirmer" onclick={confirmReservation}></lightning-button>
-                    <lightning-button label="Annuler" onclick={cancelReservation}></lightning-button>
-                </lightning-button-group>
-            </div>
+        </div>
+        <div class="slds-m-top_medium">
+            <lightning-button label="Enregistrer" variant="brand" onclick={handleSaveReservation}></lightning-button>
+            <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
         </div>
     </lightning-card>
 </template>
