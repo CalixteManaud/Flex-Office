@@ -1,0 +1,10 @@
+/* Ajoutez ici vos styles CSS personnalisés pour le composant ReservationTable */
+.slds-card {
+    padding: 1rem;
+}
+
+.slds-button-group {
+    margin-top: 10px;
+}
+
+/* Vous pouvez ajouter d'autres styles personnalisés selon vos besoins. */

@@ -266,33 +266,33 @@ export default class ReservationEdit extends LightningElement {
         const imagePath = window.resourcesPath + '/images/';
         switch (weatherCondition) {
             case 1000:
-                return `${imagePath}10000_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmped&operationContext=DELIVERY&contentId=05T2o00002FXLoF&page=0&d=/a/2o000000r2aP/GD5A.M5D6k5EcrKSwCJ0m7j98ELUOE_7T_mblRv0NG8&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 1100:
-                return `${imagePath}11000_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpej&operationContext=DELIVERY&contentId=05T2o00002FXLoP&page=0&d=/a/2o000000r2aQ/dZuv2PnPgGPjAjbyTFDd1RcLEnzKKM947zzGQ3yt4YA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 1101:
-                return `${imagePath}11010_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpek&operationContext=DELIVERY&contentId=05T2o00002FXLoU&page=0&d=/a/2o000000r2aU/YhFaVmfDv_m9Bj3f9U2hy3JWIquLZxFI31i4yv5hzn4&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 1102:
-                return `${imagePath}11020_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpel&operationContext=DELIVERY&contentId=05T2o00002FXLVd&page=0&d=/a/2o000000r2aZ/NX698oKNQjuY4jfAmHnvxe4_K4P4J5v_6yjQ42CzPF0&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 1001:
-                return `${imagePath}10010_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpei&operationContext=DELIVERY&contentId=05T2o00002FXLoK&page=0&d=/a/2o000000r2ae/9IwOjgXJrFgrqHsJdu8PxN4.1C47vkvv4gEoT4CHw4M&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 1103:
-                return `${imagePath}11030_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpes&operationContext=DELIVERY&contentId=05T2o00002FXLoy&page=0&d=/a/2o000000r2aj/_Ybm.gPjQpjTQdefhGImSdNmAxEnC.udGsfc5BSHiBk&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2100:
-                return `${imagePath}21000_fog_light_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpij&operationContext=DELIVERY&contentId=05T2o00002FXM0V&page=0&d=/a/2o000000r2ao/7y.q4O0muIZuN40WgX8MiLbf.LJ0iq4eKcbq1Qpx6Pg&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2000:
-                return `${imagePath}20000_fog_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpee&operationContext=DELIVERY&contentId=05T2o00002FXM0Q&page=0&d=/a/2o000000r2at/HRj2XBuBlTlmZLis_1F_8ICnmdHJg.a5uSRC5nmEuME&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2101:
-                return `${imagePath}21010_fog_light_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpef&operationContext=DELIVERY&contentId=05T2o00002FXM0a&page=0&d=/a/2o000000r2ap/4LpVAXXjgcLfp.JS2FuLazbCBk04Dhb8Fe0RWUM4Iu4&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2102:
-                return `${imagePath}21020_fog_light_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpio&operationContext=DELIVERY&contentId=05T2o00002FXKVO&page=0&d=/a/2o000000r2ay/LODmwMEGqZLofFH4e6L9FY4SagD_rhRxa4PHf4Grb60&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2103:
-                return `${imagePath}21030_fog_light_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpip&operationContext=DELIVERY&contentId=05T2o00002FXM0f&page=0&d=/a/2o000000r2b3/aYBLzHoj89o5HRYIgG2ilN.LCwKAI7XFuiXQv0CzFwA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2106:
-                return `${imagePath}21060_fog_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpiq&operationContext=DELIVERY&contentId=05T2o00002FXM0k&page=0&d=/a/2o000000r2b8/NnfxKTpUEbEbpQXXIQIkb7uvspC9lJeiWnkFzxFT6Qs&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2107:
-                return `${imagePath}21070_fog_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmpit&operationContext=DELIVERY&contentId=05T2o00002FXM0R&page=0&d=/a/2o000000r2bD/9a0AITnfkX8V6ax29w3UW_hv8wQ5B2zvnwZgs7E45TQ&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 2108:
-                return `${imagePath}21080_fog_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmq3u&operationContext=DELIVERY&contentId=05T2o00002FXN10&page=0&d=/a/2o000000r2bI/CNQwGVX9DgQ5I.KaI_3vX1XNtg7Bv99Fpc_TRSjThg4&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 4000:
                 return `${imagePath}40000_drizzle_large.png`;
             case 4200:
@@ -466,4 +466,9 @@ export default class ReservationEdit extends LightningElement {
                 this.handleSaveReservation(selectedDay);
         }
     }
+
+    shouldShowConfirmation(description) {
+        return description.includes('Rain') || description.includes('Snow') || description.includes('Thunderstorm') || description.includes('Drizzle') || description.includes('Freezing') || description.includes('Ice') || description.includes('Pellets') || description.includes('Wintry');
+    }
+
 }

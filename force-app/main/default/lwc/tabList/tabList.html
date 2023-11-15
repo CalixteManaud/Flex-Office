@@ -1,41 +1,24 @@
 <template>
-    <div>
-        <h1>Tables disponibles</h1>
-        <lightning-card title="Liste des tables disponibles" icon-name="custom:custom51">
-            <div class="slds-var-p-around_medium">
-                <!-- Table to display available tables -->
-                <table class="slds-table slds-table_cell-buffer slds-table_bordered">
-                    <thead>
-                        <tr class="slds-line-height_reset">
-                            <th scope="col">
-                                <div class="slds-truncate" title="Nom de la table">Nom de la table</div>
-                            </th>
-                            <th scope="col">
-                                <div class="slds-truncate" title="Équipement disponible">Équipement disponible</div>
-                            </th>
-                            <th scope="col">
-                                <div class="slds-truncate" title="Météo">Météo</div>
-                            </th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <!-- Use a for:each directive to iterate over the available tables -->
-                        <template for:each={availableTables} for:item="table">
-                            <tr key={table.Id}>
-                                <th scope="row">
-                                    <div class="slds-truncate" title={table.Name}>{table.Name}</div>
-                                </th>
-                                <td>
-                                    <div class="slds-truncate" title={table.Equipment__c}>{table.Equipment__c}</div>
-                                </td>
-                                <td>
-                                    <div class="slds-truncate" title={table.Weather__c}>{table.Weather__c}</div>
-                                </td>
-                            </tr>
-                        </template>
-                    </tbody>
-                </table>
+    <lightning-card title="Réservation de Table" icon-name="standard:record">
+        <!-- Filtrer les salles disponibles -->
+        <div class="slds-m-around_medium">
+            <lightning-input label="Date de réservation" type="date" name="reservationDate" value={reservationDate} onchange={handleDateChange}></lightning-input>
+        </div>
+
+        <!-- Afficher la liste des tables disponibles -->
+        <template for:each={availableTables} for:item="table">
+            <div key={table.Id} class="slds-m-around_medium">
+                <lightning-card title={table.Salle__c} icon-name="standard:table">
+                    <p>Equipements disponibles: {table.Equipement__c}</p>
+                    <p>Météo du jour: {table.weather}</p>
+                    <p>Date de réservation: {reservationDate}</p>
+                    <lightning-button-group>
+                        <lightning-button label="Réserver" onclick={handleReservation} data-table-id={table.Id}></lightning-button>
+                        <lightning-button label="Modifier" onclick={handleModification} data-table-id={table.Id}></lightning-button>
+                        <lightning-button label="Annuler" onclick={handleCancellation} data-table-id={table.Id}></lightning-button>
+                    </lightning-button-group>
+                </lightning-card>
             </div>
-        </lightning-card>
-    </div>
+        </template>
+    </lightning-card>
 </template>

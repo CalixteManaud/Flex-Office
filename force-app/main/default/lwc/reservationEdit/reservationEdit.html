@@ -1,14 +1,19 @@
 <template>
-    <lightning-card title="Modifier ou annuler une réservation" icon-name="standard:event">
+    <lightning-card title="Choissiez la date en fonction de la météo" icon-name="standard:event">
         <div class="slds-m-around_medium">
-            <div class="slds-grid slds-gutters">
-                <div class="slds-col slds-size_1-of-2">
+            <div class="slds-grid slds-wrap slds-gutters">
+                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12">
                     <lightning-input label="Ville actuelle" type="text" name="currentCity" value={currentCity} onchange={handleCityChange}></lightning-input>
                 </div>
             </div>
-            <div class="slds-col slds-size_1-of-2">
-                <div class="slds-size_3-of-4 slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
-                    <lightning-carousel disabled-auto-scroll>
+            <div class="slds-m-top_medium">
+                <lightning-button label="Enregistrer" variant="brand" onclick={handleSaveReservation}></lightning-button>
+                <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
+            </div>
+
+            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12">
+                <div class="slds-size_12-of-12 slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+                    <lightning-carousel onselect={handleImageClick} disabled-auto-scroll>
                         <template for:each={table} for:item="day">
                             <lightning-carousel-image
                                 key={day.date}
@@ -17,15 +22,12 @@
                                 description={day.description}
                                 alternative-text={day.date}
                                 href="#"
+                                style="width: 100%; max-width: 300px; height: auto;"
                             ></lightning-carousel-image>
                         </template>
                     </lightning-carousel>
                 </div>
             </div>
-        </div>
-        <div class="slds-m-top_medium">
-            <lightning-button label="Enregistrer" variant="brand" onclick={handleSaveReservation}></lightning-button>
-            <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
         </div>
     </lightning-card>
 </template>
