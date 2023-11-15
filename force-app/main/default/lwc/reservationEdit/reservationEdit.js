@@ -263,7 +263,6 @@ export default class ReservationEdit extends LightningElement {
     }
 
     async getImageSrc(weatherCondition) {
-        const imagePath = window.resourcesPath + '/images/';
         switch (weatherCondition) {
             case 1000:
                 return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmped&operationContext=DELIVERY&contentId=05T2o00002FXLoF&page=0&d=/a/2o000000r2aP/GD5A.M5D6k5EcrKSwCJ0m7j98ELUOE_7T_mblRv0NG8&oid=00D2o000000iu9F&dpt=null&viewId=';
@@ -326,131 +325,131 @@ export default class ReservationEdit extends LightningElement {
             case 4212:
                 return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQQ&operationContext=DELIVERY&contentId=05T2o00002FXNuA&page=0&d=/a/2o000000r2bs/ux3Zq_wK5Kfs9QhTsdHUiGdkx_lhxJJdjt0yI4J4mvY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5001:
-                return `${imagePath}50010_flurries_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQg&operationContext=DELIVERY&contentId=05T2o00002FXNuy&page=0&d=/a/2o000000r2c1/e66e6duTtva2Bf7nWeKqODxFI4GpXWQVSEQIQgxkHcs&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5100:
-                return `${imagePath}51000_snow_light_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQh&operationContext=DELIVERY&contentId=05T2o00002FXNv3&page=0&d=/a/2o000000r2c6/ADsbW5pb8CO89izbaVsvH_E5IIDK.MRL2YPu6o8h950&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5000:
-                return `${imagePath}50000_snow_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQf&operationContext=DELIVERY&contentId=05T2o00002FXNut&page=0&d=/a/2o000000r2bt/eS8asT52w2DxgptFqgoPmlP6rIm0prFIL70ePmjvFAE&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5101:
-                return `${imagePath}51010_snow_heavy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQi&operationContext=DELIVERY&contentId=05T2o00002FXNv8&page=0&d=/a/2o000000r2c7/RFacILu2L3mOqteWW8ltq3HhWxaxtw1Nq.0Jg_Fpgys&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5115:
-                return `${imagePath}51150_flurries_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQj&operationContext=DELIVERY&contentId=05T2o00002FXNvI&page=0&d=/a/2o000000r2c8/.jj_ywZFuSTecSmDZ_IRgXkXjCLQRfME6K0bSsUXMoE&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5116:
-                return `${imagePath}51160_flurries_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQq&operationContext=DELIVERY&contentId=05T2o00002FXNvS&page=0&d=/a/2o000000r2cB/cih7t6tomrIp9on5kWKDW5ZoFpgxqMeC1NUnM5DjUd0&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5117:
-                return `${imagePath}51170_flurries_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQu&operationContext=DELIVERY&contentId=05T2o00002FXNvX&page=0&d=/a/2o000000r2cC/ql_MYKPBe2c0QWg.ltK2fizt_MIygBbvDNP_4ULAjoQ&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5122:
-                return `${imagePath}51220_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQr&operationContext=DELIVERY&contentId=05T2o00002FXNvc&page=0&d=/a/2o000000r2bu/DmeDTo1YBAinVX.DOfHIKAfaM.vmYvtujx4BulWsQIc&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5102:
-                return `${imagePath}51020_snow_light_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQk&operationContext=DELIVERY&contentId=05T2o00002FXNvD&page=0&d=/a/2o000000r2bR/L1sLqULal_djpL2SVJBr3q7DbXuxygwO2GpYtPo5w2M&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5103:
-                return `${imagePath}51030_snow_light_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSn&operationContext=DELIVERY&contentId=05T2o00002FXO2J&page=0&d=/a/2o000000r2cG/g4I5C0H3U2QRSD85JeEMBJVEJ4yswcR5_2VL6sn2M70&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5104:
-                return `${imagePath}51040_snow_light_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSs&operationContext=DELIVERY&contentId=05T2o00002FXO2O&page=0&d=/a/2o000000r2cL/_zJ6Ws0B.d10g8cfGggwDgJ1J7Q7mfvarjNf7rRgM6I&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5105:
-                return `${imagePath}51050_snow_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSt&operationContext=DELIVERY&contentId=05T2o00002FXO2T&page=0&d=/a/2o000000r2cQ/txxt.j8oKK9gFSnqTvykMuQsb4s_d5Y6t8lYovwT6B8&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5106:
-                return `${imagePath}51060_snow_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSo&operationContext=DELIVERY&contentId=05T2o00002FXO2Y&page=0&d=/a/2o000000r2cV/0rtq_azqtJfYqurPGEpe3tHu2mukk_RVcco6R5SGGjc&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5107:
-                return `${imagePath}51070_snow_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqQs&operationContext=DELIVERY&contentId=05T2o00002FXO2d&page=0&d=/a/2o000000r2cW/6r0IZf5XJVnVOumxtGt4Q8N9_sDD0maZO7EZCeUfa54&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5119:
-                return `${imagePath}51190_snow_heavy_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSp&operationContext=DELIVERY&contentId=05T2o00002FXO2i&page=0&d=/a/2o000000r2ca/pGhOn0KLuwWMaYiqYDL3dGZTLuw2ULWr2z.e2ev1wms&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5120:
-                return `${imagePath}51200_snow_heavy_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSq&operationContext=DELIVERY&contentId=05T2o00002FXO2n&page=0&d=/a/2o000000r2cX/_G_Zr5N_35RkK5gvFrl5lkGST6ghtaM8QZz5PElSBto&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5121:
-                return `${imagePath}51210_snow_heavy_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqSr&operationContext=DELIVERY&contentId=05T2o00002FXO2s&page=0&d=/a/2o000000r2cR/28o1YVTukJnB1DT.YYc.IpU2CkYzZJf7RtMolgXVVMw&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5110:
-                return `${imagePath}51100_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbb&operationContext=DELIVERY&contentId=05T2o00002FXOSv&page=0&d=/a/2o000000r2cS/pJYndT5SkUG6G49skPg_2iSr.cO6XMPPELbl5kVlO2o&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5108:
-                return `${imagePath}51100_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbW&operationContext=DELIVERY&contentId=05T2o00002FXOSq&page=0&d=/a/2o000000r2cf/XsyVbHwB3LicY7xWF7Oew5Xib3VdDX6rUvugSre1IZM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5114:
-                return `${imagePath}51100_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbd&operationContext=DELIVERY&contentId=05T2o00002FXOT5&page=0&d=/a/2o000000r2ck/JzaD9c2.Z02XhKYBu2oWYuqg288ngC3_htvy7f_dE0U&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 5112:
-                return `${imagePath}51100_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbc&operationContext=DELIVERY&contentId=05T2o00002FXOT0&page=0&d=/a/2o000000r2cp/DFoYLgd8GWP.bdN0uq6e0aAf28iObsutY7Smfs2WCCU&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6000:
-                return `${imagePath}60000_freezing_drizzle_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbX&operationContext=DELIVERY&contentId=05T2o00002FXOTo&page=0&d=/a/2o000000r2cu/xPUUuQSLKsflJkQNKyTekn7kLR6zWo_vSL7uHt61dRI&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6200:
-                return `${imagePath}62000_freezing_rain_light_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbx&operationContext=DELIVERY&contentId=05T2o00002FXOU8&page=0&d=/a/2o000000r2cb/N95hB1Qe5XU3QQZVkgRYR2TXSBYtZWVy.zrD1MFxCyo&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6001:
-                return `${imagePath}60010_freezing_rain_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbv&operationContext=DELIVERY&contentId=05T2o00002FXOTt&page=0&d=/a/2o000000r2cH/7IePhHqQ4Dg4nKYKAGtKhmAztbwvqeiNIeRvJ1Nm12U&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6201:
-                return `${imagePath}62010_freezing_rain_heavy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqc5&operationContext=DELIVERY&contentId=05T2o00002FXOUD&page=0&d=/a/2o000000r2cc/OZp3QtSovZXuKTP3sGxb3Mj0zA95VtB9y.XUmHULJYw&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6003:
-                return `${imagePath}60030_freezing_rain_drizzle_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbw&operationContext=DELIVERY&contentId=05T2o00002FXOTy&page=0&d=/a/2o000000r2cg/xcfdsxBo.AEQ9U4rUDEyK_WlxE36kF6HeyH52c7tAHY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6002:
-                return `${imagePath}60020_freezing_rain_drizzle_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbY&operationContext=DELIVERY&contentId=05T2o00002FXOQx&page=0&d=/a/2o000000r2cl/5YP8HGSd8s5xxQABk90e2mhxDOHvwEhcBEUHVVxKfSM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6004:
-                return `${imagePath}60040_freezing_rain_drizzle_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqc0&operationContext=DELIVERY&contentId=05T2o00002FXOU3&page=0&d=/a/2o000000r2cz/gzMcQ6UGrxTGHrn8ppt9pF0qSDhG.ttJLxMSGh0zgNk&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6204:
-                return `${imagePath}62040_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqby&operationContext=DELIVERY&contentId=05T2o00002FXOUI&page=0&d=/a/2o000000r2cm/aXzBWYIs6d88xkebCr7v4lo1PqKRIS57DYMUSAYx24E&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6206:
-                return `${imagePath}62060_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqce&operationContext=DELIVERY&contentId=05T2o00002FXOWi&page=0&d=/a/2o000000r2cd/nUrMbIYe5_.pw0IFmQKHx1ReXPppyiVGtfF9wPsj_gg&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6205:
-                return `${imagePath}62050_freezing_rain_light_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcd&operationContext=DELIVERY&contentId=05T2o00002FXOVl&page=0&d=/a/2o000000r2cq/Cu8MTRwU6WCSCzJLmudUnTiGEnZhjCoj8dGWZl7Q46w&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6203:
-                return `${imagePath}62030_freezing_rain_light_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcc&operationContext=DELIVERY&contentId=05T2o00002FXOWd&page=0&d=/a/2o000000r2ce/37UPmLsGr2AIVW7hKmTGcgGswW37txDuUmOXLVZTa4Q&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6209:
-                return `${imagePath}62090_freezing_rain_light_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcf&operationContext=DELIVERY&contentId=05T2o00002FXOWn&page=0&d=/a/2o000000r2d0/HtUpqO1HmpFl5x2DTjjA0YTmeePpmEBV0S.lSinTEZY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6213:
-                return `${imagePath}62130_freezing_rain_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqch&operationContext=DELIVERY&contentId=05T2o00002FXOWx&page=0&d=/a/2o000000r2d1/joYKwySLlhNHveY5JnMo8PgPi0x9JhqCsAaWcSmTvaw&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6214:
-                return `${imagePath}62140_freezing_rain_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqci&operationContext=DELIVERY&contentId=05T2o00002FXOX2&page=0&d=/a/2o000000r2ch/ivzS8D3P7AeF4iYgzQlxolXQ5kmbE9YVzDpm7c5TiBg&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6215:
-                return `${imagePath}62150_freezing_rain_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcj&operationContext=DELIVERY&contentId=05T2o00002FXOX7&page=0&d=/a/2o000000r2cr/yJ36N43P0qn_nT8qX0UMscAF.KizZY4EIzmDW_PhVfs&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6212:
-                return `${imagePath}62120_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcg&operationContext=DELIVERY&contentId=05T2o00002FXOWs&page=0&d=/a/2o000000r2cs/3J6ZMHcmxXPMNQxWdLMAO40bj9oOAvuK6OmQhsoiUF8&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6220:
-                return `${imagePath}62200_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqck&operationContext=DELIVERY&contentId=05T2o00002FXOXC&page=0&d=/a/2o000000r2cI/STdDmIeaQl7ueMjtFjJmFU844.2IETdS40nss4RnXFw&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6222:
-                return `${imagePath}62220_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcm&operationContext=DELIVERY&contentId=05T2o00002FXOXH&page=0&d=/a/2o000000r2d4/LxcJEA.cvwFkl0yJrjUZ4XDDYCGPVIzoeZQG7XyqyfY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6207:
-                return `${imagePath}62070_freezing_rain_heavy_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqco&operationContext=DELIVERY&contentId=05T2o00002FXOY5&page=0&d=/a/2o000000r2ct/6LC6iDZmsx0gL2wuxYhD5RcZqvUQQ_OGP4RC1uWF.D8&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6202:
-                return `${imagePath}62020_freezing_rain_heavy_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcn&operationContext=DELIVERY&contentId=05T2o00002FXOY0&page=0&d=/a/2o000000r2d9/cs8I_ifttByVHa2ffY1uoi1Aj6Kt2H77xnbWdRTH1Bs&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 6208:
-                return `${imagePath}62080_freezing_rain_heavy_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqbZ&operationContext=DELIVERY&contentId=05T2o00002FXOYA&page=0&d=/a/2o000000r2dA/ET4cQWLAGGfvavEqn5tNdCDgQYAuGGKP_V7Jnw9h35Y&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7102:
-                return `${imagePath}71020_ice_pellets_light_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdW&operationContext=DELIVERY&contentId=05T2o00002FXOa6&page=0&d=/a/2o000000r2dB/jd80niuHrtHIJM25MBXPwhM6c8bFnkFQq1a_62bbMho&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7000:
-                return `${imagePath}70000_ice_pellets_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdR&operationContext=DELIVERY&contentId=05T2o00002FXOa1&page=0&d=/a/2o000000r2cJ/drcNX3OMhWQ8_Wb35b9.Zeob.ezeLjlaCp9d9fQEhPQ&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7101:
-                return `${imagePath}71010_ice_pellets_heavy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdS&operationContext=DELIVERY&contentId=05T2o00002FXORo&page=0&d=/a/2o000000r2dC/vsqdeGx1rPwvcz3.x5.d8u9dOH2S.0NWQJ8d3bzy7bU&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7110:
-                return `${imagePath}71100_ice_pellets_light_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdT&operationContext=DELIVERY&contentId=05T2o00002FXOaQ&page=0&d=/a/2o000000r2cK/8CPcfYuGbxpW0aqBWjVpUNbLj8HLil8CIUr2GTUfya0&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7111:
-                return `${imagePath}71110_ice_pellets_light_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdU&operationContext=DELIVERY&contentId=05T2o00002FXOaV&page=0&d=/a/2o000000r2dE/kLgPBXMCXIyzHAc5NaRtFqJYxfOQcOWarvEnUTbmzgY&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7112:
-                return `${imagePath}71120_ice_pellets_light_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdV&operationContext=DELIVERY&contentId=05T2o00002FXOaa&page=0&d=/a/2o000000r2dF/RNaeN.jLUFnkzIMRyqSlVIFSZKdOA57tocAMaU_H1oU&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7108:
-                return `${imagePath}71080_ice_pellets_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqba&operationContext=DELIVERY&contentId=05T2o00002FXOaG&page=0&d=/a/2o000000r2dD/pitStr1CXUgT5oi6mHRvNPVQCthQ_NigBxaztBBtvbg&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7107:
-                return `${imagePath}71070_ice_pellets_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcp&operationContext=DELIVERY&contentId=05T2o00002FXOaB&page=0&d=/a/2o000000r2d5/IeCAgcwq0CpFypZcbIqOO_0Y5R5x6RFEw2yK.dAQOXA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7109:
-                return `${imagePath}71090_ice_pellets_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcq&operationContext=DELIVERY&contentId=05T2o00002FXOaL&page=0&d=/a/2o000000r2d6/m3Aw440FnMCL8sTuBLFj8lUk.pnuL657Ou3gQDSpHgk&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7113:
-                return `${imagePath}71130_ice_pellets_heavy_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqdb&operationContext=DELIVERY&contentId=05T2o00002FXOaf&page=0&d=/a/2o000000r2dJ/a142vki5IsGfVUzviEBYOIwGPVvp4jOYnL19_27cKmc&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7114:
-                return `${imagePath}71140_ice_pellets_heavy_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe3&operationContext=DELIVERY&contentId=05T2o00002FXOcq&page=0&d=/a/2o000000r2dG/bfyHLyRkmsFSeqM10xZSPZjD6SWb9UWUbKyrmH7Cuks&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7116:
-                return `${imagePath}71160_ice_pellets_heavy_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe4&operationContext=DELIVERY&contentId=05T2o00002FXOcv&page=0&d=/a/2o000000r2d2/7quTBNibj4tUSh2mPqOc35oYYpEltT66z7VVwYIyl0Q&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7105:
-                return `${imagePath}71050_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe1&operationContext=DELIVERY&contentId=05T2o00002FXOcg&page=0&d=/a/2o000000r2dO/5dppP1EZbosM5S2LtM8ud85ZmBG09qOBRnIrDdzTLq4&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7115:
-                return `${imagePath}71150_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe5&operationContext=DELIVERY&contentId=05T2o00002FXOdF&page=0&d=/a/2o000000r2dP/P_J0JhDZGSz5vkKzvb09_bSlN8CYbj9jKr2JKNC4NLM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7117:
-                return `${imagePath}71170_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe5&operationContext=DELIVERY&contentId=05T2o00002FXOdF&page=0&d=/a/2o000000r2dP/P_J0JhDZGSz5vkKzvb09_bSlN8CYbj9jKr2JKNC4NLM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7106:
-                return `${imagePath}71060_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe5&operationContext=DELIVERY&contentId=05T2o00002FXOdF&page=0&d=/a/2o000000r2dP/P_J0JhDZGSz5vkKzvb09_bSlN8CYbj9jKr2JKNC4NLM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 7103:
-                return `${imagePath}71030_wintry_mix_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe5&operationContext=DELIVERY&contentId=05T2o00002FXOdF&page=0&d=/a/2o000000r2dP/P_J0JhDZGSz5vkKzvb09_bSlN8CYbj9jKr2JKNC4NLM&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 8000:
-                return `${imagePath}80000_tstorm_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqcl&operationContext=DELIVERY&contentId=05T2o00002FXOdj&page=0&d=/a/2o000000r2d3/.hTNhrsGtIHZxyA9z6TexPInQBOhgs7KaxXm1.nzD7E&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 8001:
-                return `${imagePath}80010_tstorm_mostly_clear_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe6&operationContext=DELIVERY&contentId=05T2o00002FXOdo&page=0&d=/a/2o000000r2dT/6zcwTWlDxiWaOQJRtb7czWu6d.CuJpg1w2JI9GYGOCk&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 8003:
-                return `${imagePath}80030_tstorm_partly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe8&operationContext=DELIVERY&contentId=05T2o00002FXOdy&page=0&d=/a/2o000000r2dU/4EUXUTJ5XJDQcQg2.m6kLsFcY9L2bR5cAOilBid6xSA&oid=00D2o000000iu9F&dpt=null&viewId=';
             case 8002:
-                return `${imagePath}80020_tstorm_mostly_cloudy_large.png`;
+                return 'https://mindful-shark-l8by6a-dev-ed.trailblaze.file.force.com/sfc/dist/version/renditionDownload?rendition=ORIGINAL_Png&versionId=0682o00000vmqe7&operationContext=DELIVERY&contentId=05T2o00002FXOdt&page=0&d=/a/2o000000r2dV/zdqEsdDj89lZLiZCYqR2lf8uwSlDIQlbde0oLyhs55E&oid=00D2o000000iu9F&dpt=null&viewId=';
             default:
                 return '';
         }
