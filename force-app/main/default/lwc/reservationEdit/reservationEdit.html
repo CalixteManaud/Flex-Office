@@ -1,32 +1,26 @@
 <template>
-    <lightning-card title="Choissiez la date en fonction de la météo" icon-name="standard:event">
+    <lightning-card title="Choisissez la date en fonction de la météo" icon-name="standard:event">
         <div class="slds-m-around_medium">
             <div class="slds-grid slds-wrap slds-gutters">
-                <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12">
-                    <lightning-input label="Ville actuelle" type="text" name="currentCity" value={currentCity} onchange={handleCityChange}></lightning-input>
+                <div class="slds-col slds-size_8-of-8 slds-medium-size_4-of-8">
+                    <div class="slds-p-around_medium">
+                        <lightning-input label="Ville actuelle" type="text" name="currentCity" value={currentCity} onchange={handleCityChange}></lightning-input>
+                    </div>
+                    <div class="slds-m-top_medium">
+                        <template for:each={table} for:item="day">
+                            <div key={day.date} class="slds-m-bottom_small">
+                                <p class="slds-text-heading_small slds-box" onclick={handleImageClick} data-date={day.date}>
+                                    Date : {day.date} - Description : {day.description} - Température : {day.temperature} °C
+                                </p>
+                            </div>
+                        </template>
+                    </div>
                 </div>
-            </div>
-            <div class="slds-m-top_medium">
-                <lightning-button label="Enregistrer" variant="brand" onclick={handleSaveReservation}></lightning-button>
-                <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
             </div>
 
-            <div class="slds-col slds-size_12-of-12 slds-medium-size_6-of-12">
-                <div class="slds-size_12-of-12 slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
-                    <lightning-carousel onselect={handleImageClick} disabled-auto-scroll>
-                        <template for:each={table} for:item="day">
-                            <lightning-carousel-image
-                                key={day.date}
-                                src={day.imageSrc}
-                                header={day.date}
-                                description={day.description}
-                                alternative-text={day.date}
-                                href="#"
-                                style="width: 100%; max-width: 300px; height: auto;"
-                            ></lightning-carousel-image>
-                        </template>
-                    </lightning-carousel>
-                </div>
+            <div class="slds-m-top_medium slds-grid slds-align_absolute-center">
+                <lightning-button label="Enregistrer" variant="brand" onclick={handleSaveReservation}></lightning-button>
+                <lightning-button label="Annuler" variant="neutral" onclick={handleCancel}></lightning-button>
             </div>
         </div>
     </lightning-card>
