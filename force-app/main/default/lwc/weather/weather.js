@@ -167,7 +167,13 @@ export default class weather extends NavigationMixin(LightningElement) {
         return weatherMapping[weatherCondition] || 'Unknown';
     }
 
-    async createNewReservation() {
+    async createNewReservation(selectedDay) {
+        if (!selectedDay){
+            console.error('Error : selectedDay n\'est pas défini');
+            return;
+        }
+        const formattedDate = this.formatDate(selectedDay.date);
+        console.log('formattedDate', formattedDate);
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
@@ -175,10 +181,32 @@ export default class weather extends NavigationMixin(LightningElement) {
                 actionName: 'new'
             },
             state: {
-                defaultFieldValues: `Debut__c=${new Date(selectedDay.date).toISOString()},Weather__c=${selectedDay.description}`
+                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)}`
             }
         });
     }
+    formatDate(rawDate) {
+        const months = {
+            'janvier': '01',
+            'février': '02',
+            'mars': '03',
+            'avril': '04',
+            'mai': '05',
+            'juin': '06',
+            'juillet': '07',
+            'août': '08',
+            'septembre': '09',
+            'octobre': '10',
+            'novembre': '11',
+            'décembre': '12'
+        };
+        const parts = rawDate.split(' ');
+        const day = parts[0];
+        const month = months[parts[1].toLowerCase()];
+        const year = parts[2];
+        return `${year}-${month}-${day}`;
+    }
+    // 2023-10-23
     // Méthode pour obtenir la météo
     async handleImageClick(event) {
         const selectedDate = event.currentTarget.dataset.date;
@@ -187,10 +215,10 @@ export default class weather extends NavigationMixin(LightningElement) {
         if (selectedDay && this.shouldShowConfirmation(selectedDay.description)) {
             const confirmationMessage = `Êtes-vous sûr de vouloir réserver pour ${selectedDate}?`;
             if (window.confirm(confirmationMessage)){
-                await this.createNewReservation();
+                await this.createNewReservation(selectedDay);
             }
         }
-        await this.createNewReservation();
+        await this.createNewReservation(selectedDay);
     }
     // Méthode pour obtenir la météo
     shouldShowConfirmation(description) {
