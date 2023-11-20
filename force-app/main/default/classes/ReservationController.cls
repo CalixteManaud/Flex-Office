@@ -2,7 +2,7 @@ public with sharing class ReservationController {
 
     @AuraEnabled(cacheable=true)
     public static List<Table__c> getAvailables(Date reservationDate){
-        return [SELECT Id, Name, Salle__c, Equipement__c FROM Table__c WHERE Date_Disponible__c = :reservationDate];
+        return [SELECT Id, Name, Salle__c, Equipement__c FROM Table__c];
     }
 
     @AuraEnabled

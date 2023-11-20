@@ -1,7 +1,7 @@
-import { LightningElement, api, track } from 'lwc';
+import { LightningElement, api, track, wire } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 //import images from '@salesforce/resourceUrl/images';
-export default class ReservationEdit extends LightningElement {
+export default class weather extends LightningElement {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
@@ -52,12 +52,11 @@ export default class ReservationEdit extends LightningElement {
                     timeZone: 'UTC' // Vous pouvez ajuster le fuseau horaire si nécessaire
                 });
                 const weatherCodeMax = timeline.values.weatherCodeMax;
-
                 return{
                     date : formattedate,
                     description: await this.getWeatherDescription(weatherCodeMax),
                     temperature: timeline.values.temperatureMax
-                };
+                }
             }));
             return this.table;
         } catch (error) {
