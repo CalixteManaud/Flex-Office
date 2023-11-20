@@ -1,14 +1,15 @@
-import { LightningElement, api, track, wire } from 'lwc';
+import { LightningElement, track, wire } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
-//import images from '@salesforce/resourceUrl/images';
+
 export default class weather extends LightningElement {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
-
+    // Méthode pour obtenir la valeur de l'input
     async handleCityChange(event){
          this.currentCity = event.target.value;
     }
+
     async handleSaveReservation() {
         try {
             await this.getCurrentPosition();
@@ -34,7 +35,7 @@ export default class weather extends LightningElement {
             console.error('Veuillez entrer le nom de la ville.');
         }
     }
-
+    // Méthode pour obtenir la météo
     async handleWeatherCardCarouselChange(event) {
         try {
             this.weatherData = JSON.parse(event);
@@ -58,6 +59,13 @@ export default class weather extends LightningElement {
                     temperature: timeline.values.temperatureMax
                 }
             }));
+            const weatherChangeEvent = new CustomEvent('weatherchange', {
+                detail: {
+                    date: this.table[0].date, // On récupère la date du premier élément du tableau
+                    description: this.table[0].description, // On récupère la description du premier élément du tableau
+                },
+            });
+            this.dispatchEvent(weatherChangeEvent);
             return this.table;
         } catch (error) {
             console.error('Erreur lors de la manipulation des données météo :', error);
@@ -65,200 +73,106 @@ export default class weather extends LightningElement {
         }
     }
 
-
+    // Méthode pour obtenir la description de la météo
     async getWeatherDescription(weatherCondition) {
-        switch (weatherCondition) {
-            case 1000:
-                return 'Clear';
-            case 1100:
-                return 'Mostly Clear';
-            case 1101:
-                return 'Partly Cloudy';
-            case 1102:
-                return 'Mostly Cloudy';
-            case 1001:
-                return 'Cloudy';
-            case 1103:
-                return 'Partly Cloudy';
-            case 2100:
-                return 'Light Fog';
-            case 2000:
-                return 'Fog';
-            case 2101:
-                return 'Mostly Clear';
-            case 2102:
-                return 'Partly Cloudy';
-            case 2103:
-                return 'Mostly Cloudy';
-            case 2106:
-                return 'Mostly Clear';
-            case 2107:
-                return 'Partly Cloudy';
-            case 2108:
-                return 'Mostly Cloudy';
-            case 4000:
-                return 'Drizzle';
-            case 4200:
-                return 'Light Rain';
-            case 4001:
-                return 'Rain';
-            case 4201:
-                return 'Heavy Rain';
-            case 4203:
-                return 'Mostly Clear';
-            case 4204:
-                return 'Partly Cloudy';
-            case 4205:
-                return 'Mostly Cloudy';
-            case 4213:
-                return 'Mostly Clear';
-            case 4214:
-                return 'Partly Cloudy';
-            case 4215:
-                return 'Mostly Cloudy';
-            case 4209:
-                return 'Mostly Clear';
-            case 4208:
-                return 'Partly Cloudy';
-            case 4210:
-                return 'Mostly Cloudy';
-            case 4211:
-                return 'Mostly Clear';
-            case 4202:
-                return 'Partly Cloudy';
-            case 4212:
-                return 'Mostly Cloudy';
-            case 5001:
-                return 'Flurries';
-            case 5100:
-                return 'Light Snow';
-            case 5000:
-                return 'Snow';
-            case 5101:
-                return 'Heavy Snow';
-            case 5115:
-                return 'Mostly Clear';
-            case 5116:
-                return 'Partly Cloudy';
-            case 5117:
-                return 'Mostly Cloudy';
-            case 5122:
-                return 'Drizzle';
-            case 5102:
-                return 'Mostly Clear';
-            case 5103:
-                return 'Partly Cloudy';
-            case 5104:
-                return 'Mostly Cloudy';
-            case 5105:
-                return 'Mostly Clear';
-            case 5106:
-                return 'Partly Cloudy';
-            case 5107:
-                return 'Mostly Cloudy';
-            case 5119:
-                return 'Mostly Clear';
-            case 5120:
-                return 'Partly Cloudy';
-            case 5121:
-                return 'Mostly Cloudy';
-            case 5110:
-                return 'Drizzle';
-            case 5108:
-                return 'Rain';
-            case 5114:
-                return 'Snow';
-            case 5112:
-                return 'Snow';
-            case 6000:
-                return 'Freezing Drizzle';
-            case 6200:
-                return 'Light Freezing Drizzle';
-            case 6001:
-                return 'Freezing Rain';
-            case 6201:
-                return 'Heavy Freezing Rain';
-            case 6003:
-                return 'Mostly Clear';
-            case 6002:
-                return 'Partly Cloudy';
-            case 6004:
-                return 'Mostly Cloudy';
-            case 6204:
-                return 'Drizzle';
-            case 6206:
-                return 'Light Rain';
-            case 6205:
-                return 'Mostly Clear';
-            case 6203:
-                return 'Partly Cloudy';
-            case 6209:
-                return 'Mostly Cloudy';
-            case 6213:
-                return 'Mostly Clear';
-            case 6214:
-                return 'Partly Cloudy';
-            case 6215:
-                return 'Mostly Cloudy';
-            case 6212:
-                return 'Drizzle';
-            case 6220:
-                return 'Light Rain';
-            case 6222:
-                return 'Rain';
-            case 6207:
-                return 'Mostly Clear';
-            case 6202:
-                return 'Partly Cloudy';
-            case 6208:
-                return 'Mostly Cloudy';
-            case 7102:
-                return 'Light Ice Pellets';
-            case 7000:
-                return 'Ice Pellets';
-            case 7101:
-                return 'Heavy Ice Pellets';
-            case 7110:
-                return 'Mostly Clear';
-            case 7111:
-                return 'Partly Cloudy';
-            case 7112:
-                return 'Mostly Cloudy';
-            case 7108:
-                return 'Mostly Clear';
-            case 7107:
-                return 'Partly Cloudy';
-            case 7109:
-                return 'Mostly Cloudy';
-            case 7113:
-                return 'Mostly Clear';
-            case 7114:
-                return 'Partly Cloudy';
-            case 7116:
-                return 'Mostly Cloudy';
-            case 7105:
-                return 'Drizzle';
-            case 7115:
-                return 'Light Rain';
-            case 7117:
-                return 'Rain';
-            case 7106:
-                return 'Freezing Rain';
-            case 7103:
-                return 'Freezing Rain';
-            case 8000:
-                return 'Thunderstorm';
-            case 8001:
-                return 'Mostly Clear';
-            case 8003:
-                return 'Partly Cloudy';
-            case 8002:
-                return 'Mostly Cloudy';
-            default:
-                return '';
-        }
+        const weatherMapping = {
+            1000: 'Clear',
+            1100: 'Mostly Clear',
+            1101: 'Partly Cloudy',
+            1102: 'Mostly Cloudy',
+            1001: 'Cloudy',
+            1103: 'Mostly Clear',
+            2100: 'Light Fog',
+            2000: 'Fog',
+            2101: 'Mostly Clear',
+            2102: 'Partly Cloudy',
+            2103: 'Mostly Cloudy',
+            2106: 'Mostly Clear',
+            2107: 'Partly Cloudy',
+            2108: 'Mostly Cloudy',
+            4000: 'Drizzle',
+            4200: 'Light Rain',
+            4001: 'Rain',
+            4201: 'Heavy Rain',
+            4203: 'Mostly Clear',
+            4204: 'Partly Cloudy',
+            4205: 'Mostly Cloudy',
+            4213: 'Mostly Clear',
+            4214: 'Partly Cloudy',
+            4215: 'Mostly Cloudy',
+            4209: 'Mostly Clear',
+            4208: 'Partly Cloudy',
+            4210: 'Mostly Cloudy',
+            4211: 'Mostly Clear',
+            4202: 'Partly Cloudy',
+            4212: 'Mostly Cloudy',
+            5001: 'Flurries',
+            5100: 'Light Snow',
+            5000: 'Snow',
+            5101: 'Heavy Snow',
+            5115: 'Mostly Clear',
+            5116: 'Partly Cloudy',
+            5117: 'Mostly Cloudy',
+            5122: 'Drizzle',
+            5102: 'Mostly Clear',
+            5103: 'Partly Cloudy',
+            5104: 'Mostly Cloudy',
+            5105: 'Mostly Clear',
+            5106: 'Partly Cloudy',
+            5107: 'Mostly Cloudy',
+            5119: 'Mostly Clear',
+            5120: 'Partly Cloudy',
+            5121: 'Mostly Cloudy',
+            5110: 'Drizzle',
+            5108: 'Rain',
+            5114: 'Snow',
+            5112: 'Snow',
+            6000: 'Freezing Drizzle',
+            6200: 'Light Freezing Drizzle',
+            6001: 'Freezing Rain',
+            6201: 'Heavy Freezing Rain',
+            6003: 'Mostly Clear',
+            6002: 'Partly Cloudy',
+            6004: 'Mostly Cloudy',
+            6204: 'Drizzle',
+            6206: 'Light Rain',
+            6205: 'Mostly Clear',
+            6203: 'Partly Cloudy',
+            6209: 'Mostly Cloudy',
+            6213: 'Mostly Clear',
+            6214: 'Partly Cloudy',
+            6215: 'Mostly Cloudy',
+            6212: 'Drizzle',
+            6220: 'Light Rain',
+            6222: 'Rain',
+            6207: 'Mostly Clear',
+            6202: 'Partly Cloudy',
+            6208: 'Mostly Cloudy',
+            7102: 'Light Ice Pellets',
+            7000: 'Ice Pellets',
+            7101: 'Heavy Ice Pellets',
+            7110: 'Mostly Clear',
+            7111: 'Partly Cloudy',
+            7112: 'Mostly Cloudy',
+            7108: 'Mostly Clear',
+            7107: 'Partly Cloudy',
+            7109: 'Mostly Cloudy',
+            7113: 'Mostly Clear',
+            7114: 'Partly Cloudy',
+            7116: 'Mostly Cloudy',
+            7105: 'Drizzle',
+            7115: 'Light Rain',
+            7117: 'Rain',
+            7106: 'Freezing Rain',
+            7103: 'Freezing Rain',
+            8000: 'Thunderstorm',
+            8001: 'Mostly Clear',
+            8003: 'Partly Cloudy',
+            8002: 'Mostly Cloudy'
+        };
+        return weatherMapping[weatherCondition] || 'Unknown';
     }
-
+    // Méthode pour obtenir la météo
     handleImageClick(event) {
         const selectedDate = event.currentTarget.dataset.date;
         const selectedDay = this.table.find(day => day.date === selectedDate);
@@ -272,9 +186,10 @@ export default class weather extends LightningElement {
                 this.handleSaveReservation(selectedDay);
         }
     }
-
+    // Méthode pour obtenir la météo
     shouldShowConfirmation(description) {
-        return description.includes('Rain') || description.includes('Snow') || description.includes('Thunderstorm') || description.includes('Drizzle') || description.includes('Freezing') || description.includes('Ice') || description.includes('Pellets') || description.includes('Wintry');
+        const keywords = ['Rain', 'Snow', 'Thunderstorm', 'Drizzle', 'Freezing', 'Ice', 'Pellets', 'Wintry'];
+        return keywords.some(keyword => description.includes(keyword));
     }
 
 }
