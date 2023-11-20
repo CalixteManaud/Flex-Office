@@ -1,7 +1,8 @@
-import { LightningElement, track, wire } from 'lwc';
+import { LightningElement, track, api } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
+import { NavigationMixin } from 'lightning/navigation';
 
-export default class weather extends LightningElement {
+export default class weather extends NavigationMixin(LightningElement) {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
@@ -59,13 +60,6 @@ export default class weather extends LightningElement {
                     temperature: timeline.values.temperatureMax
                 }
             }));
-            const weatherChangeEvent = new CustomEvent('weatherchange', {
-                detail: {
-                    date: this.table[0].date, // On récupère la date du premier élément du tableau
-                    description: this.table[0].description, // On récupère la description du premier élément du tableau
-                },
-            });
-            this.dispatchEvent(weatherChangeEvent);
             return this.table;
         } catch (error) {
             console.error('Erreur lors de la manipulation des données météo :', error);
@@ -172,19 +166,31 @@ export default class weather extends LightningElement {
         };
         return weatherMapping[weatherCondition] || 'Unknown';
     }
+
+    async createNewReservation() {
+        this[NavigationMixin.Navigate]({
+            type: 'standard__objectPage',
+            attributes: {
+                objectApiName: 'Reservation__c',
+                actionName: 'new'
+            },
+            state: {
+                defaultFieldValues: `Debut__c=${new Date(selectedDay.date).toISOString()},Weather__c=${selectedDay.description}`
+            }
+        });
+    }
     // Méthode pour obtenir la météo
-    handleImageClick(event) {
+    async handleImageClick(event) {
         const selectedDate = event.currentTarget.dataset.date;
         const selectedDay = this.table.find(day => day.date === selectedDate);
-    
-        console.log('selectedDate:', selectedDate);
-        console.log('selectedDay:', selectedDay);
-    
+
         if (selectedDay && this.shouldShowConfirmation(selectedDay.description)) {
             const confirmationMessage = `Êtes-vous sûr de vouloir réserver pour ${selectedDate}?`;
-            if (window.confirm(confirmationMessage))
-                this.handleSaveReservation(selectedDay);
+            if (window.confirm(confirmationMessage)){
+                await this.createNewReservation();
+            }
         }
+        await this.createNewReservation();
     }
     // Méthode pour obtenir la météo
     shouldShowConfirmation(description) {
