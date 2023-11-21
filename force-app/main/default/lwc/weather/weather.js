@@ -1,4 +1,4 @@
-import { LightningElement, track, api } from 'lwc';
+import { LightningElement, track } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 import { NavigationMixin } from 'lightning/navigation';
 
@@ -6,7 +6,10 @@ export default class weather extends NavigationMixin(LightningElement) {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
-    // Méthode pour obtenir la valeur de l'input
+    /**
+     * @param {*valeur de l'input*} event
+     * @description : Permet de récupérer la valeur de l'input
+     */
     async handleCityChange(event){
          this.currentCity = event.target.value;
     }
@@ -18,7 +21,9 @@ export default class weather extends NavigationMixin(LightningElement) {
             console.error('Error in handleSaveReservation:', error);
         }
     }
-    // Méthode pour obtenir la position de l'utilisateur
+    /**
+     * @description : Permet de récupérer la position actuelle
+     */
     async getCurrentPosition() {
         if (this.currentCity) {
             getWheaterData({ location: this.currentCity })
@@ -36,7 +41,11 @@ export default class weather extends NavigationMixin(LightningElement) {
             console.error('Veuillez entrer le nom de la ville.');
         }
     }
-    // Méthode pour obtenir la météo
+    /**
+     * @param {*les valeurs de l'api de la météo*} event
+     * @description : Permet d'afficher les données météo
+     * @return {*les données météo*}
+     */
     async handleWeatherCardCarouselChange(event) {
         try {
             this.weatherData = JSON.parse(event);
@@ -67,7 +76,12 @@ export default class weather extends NavigationMixin(LightningElement) {
         }
     }
 
-    // Méthode pour obtenir la description de la météo
+    /**
+     * @param {*le code de la météo*} weatherCondition
+     * @description : Permet de récupérer la description de la météo
+     * @return {*la description de la météo*}
+     * @example : 1000 => Clear
+     * */
     async getWeatherDescription(weatherCondition) {
         const weatherMapping = {
             1000: 'Clear',
@@ -166,7 +180,10 @@ export default class weather extends NavigationMixin(LightningElement) {
         };
         return weatherMapping[weatherCondition] || 'Unknown';
     }
-
+    /**
+     * @param {les valeurs de la date et de la description} selectedDay 
+     * @description : Permet de créer une nouvelle réservation
+     */
     async createNewReservation(selectedDay) {
         if (!selectedDay){
             console.error('Error : selectedDay n\'est pas défini');
@@ -185,6 +202,12 @@ export default class weather extends NavigationMixin(LightningElement) {
             }
         });
     }
+    /**
+     * @param {*la date brute*} rawDate
+     * @description : Permet de formater la date
+     * @return {*la date formatée*}
+     * @example : 2021-01-01
+     * */
     formatDate(rawDate) {
         const months = {
             'janvier': '01',
@@ -206,8 +229,11 @@ export default class weather extends NavigationMixin(LightningElement) {
         const year = parts[2];
         return `${year}-${month}-${day}`;
     }
-    // 2023-10-23
-    // Méthode pour obtenir la météo
+
+    /**
+     * @param {*les valeurs de la date*} event
+     * @description : Permet de gérer le click sur l'image
+     */
     async handleImageClick(event) {
         const selectedDate = event.currentTarget.dataset.date;
         const selectedDay = this.table.find(day => day.date === selectedDate);
@@ -220,7 +246,13 @@ export default class weather extends NavigationMixin(LightningElement) {
         }
         await this.createNewReservation(selectedDay);
     }
-    // Méthode pour obtenir la météo
+
+    /**
+     * @param {*la description de la météo*} description
+     * @description : Permet de vérifier si la météo est mauvaise
+     * @return {*true ou false*}
+     * @example : Rain, Snow, Thunderstorm, Drizzle, Freezing, Ice, Pellets, Wintry
+     * */
     shouldShowConfirmation(description) {
         const keywords = ['Rain', 'Snow', 'Thunderstorm', 'Drizzle', 'Freezing', 'Ice', 'Pellets', 'Wintry'];
         return keywords.some(keyword => description.includes(keyword));
