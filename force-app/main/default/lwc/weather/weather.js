@@ -1,6 +1,7 @@
 import { LightningElement, track } from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 import { NavigationMixin } from 'lightning/navigation';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
 
 export default class weather extends NavigationMixin(LightningElement) {
     @track currentCity;
@@ -31,11 +32,11 @@ export default class weather extends NavigationMixin(LightningElement) {
                     if (result.status === 'success') {
                         this.weatherData = await this.handleWeatherCardCarouselChange(result.body);
                     } else {
-                        console.error('Erreur lors de la récupération des données météo 1:', result.message);
+                        this.showToast('Attention', 'Veuillez entrer une ville valide', 'error');
                     }
                 })
                 .catch(error => {
-                    console.error('Erreur lors de la récupération des données météo 2:', error);
+                    this.showToast('Fatal', `Erreur lors de la récupération des données météo : ${error}`, 'error');
                 });
         } else {
             console.error('Veuillez entrer le nom de la ville.');
@@ -190,7 +191,6 @@ export default class weather extends NavigationMixin(LightningElement) {
             return;
         }
         const formattedDate = this.formatDate(selectedDay.date);
-        console.log('formattedDate', formattedDate);
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
@@ -242,6 +242,9 @@ export default class weather extends NavigationMixin(LightningElement) {
             const confirmationMessage = `Êtes-vous sûr de vouloir réserver pour ${selectedDate}?`;
             if (window.confirm(confirmationMessage)){
                 await this.createNewReservation(selectedDay);
+            }else{
+                this.showToast('Attention', 'Vous avez annulé la réservation', 'warning');
+                return;
             }
         }
         await this.createNewReservation(selectedDay);
@@ -256,6 +259,15 @@ export default class weather extends NavigationMixin(LightningElement) {
     shouldShowConfirmation(description) {
         const keywords = ['Rain', 'Snow', 'Thunderstorm', 'Drizzle', 'Freezing', 'Ice', 'Pellets', 'Wintry'];
         return keywords.some(keyword => description.includes(keyword));
+    }
+
+    showToast(title, message, variant) {
+        const event = new ShowToastEvent({
+            title: title,
+            message : message,
+            variant : variant
+        });
+        this.dispatchEvent(event);
     }
 
 }
