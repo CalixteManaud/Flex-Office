@@ -1,4 +1,4 @@
-import { LightningElement, track } from 'lwc';
+import { LightningElement, track} from 'lwc';
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
@@ -7,6 +7,13 @@ export default class weather extends NavigationMixin(LightningElement) {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
+    tables = [];
+
+    handleTableSelected(event) {
+        const selectedTableId = event.detail;
+        this.createNewReservation(selectedTableId);
+    }
+
     /**
      * @param {*valeur de l'input*} event
      * @description : Permet de récupérer la valeur de l'input
@@ -190,7 +197,9 @@ export default class weather extends NavigationMixin(LightningElement) {
             console.error('Error : selectedDay n\'est pas défini');
             return;
         }
+        console.log('selectedDay :', JSON.stringify(selectedDay));
         const formattedDate = this.formatDate(selectedDay.date);
+
         this[NavigationMixin.Navigate]({
             type: 'standard__objectPage',
             attributes: {
@@ -198,7 +207,7 @@ export default class weather extends NavigationMixin(LightningElement) {
                 actionName: 'new'
             },
             state: {
-                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)}`
+                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)},`
             }
         });
     }

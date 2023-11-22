@@ -6,7 +6,7 @@ public with sharing class ReservationReminderBatch implements Database.Batchable
         Database.executeBatch(this);
     }
     /**
-     * The method to process each batch of records.
+     * Cette méthode est appelée par le système pour démarrer le batch.
      */
     public Database.QueryLocator start(Database.BatchableContext BC){
         // Query pour les reservations avec rappels aujourd'hui

@@ -12,7 +12,7 @@ public with sharing class PDFController {
     private static String generatePDFContent(List<Reservation__c> reservations) {
         String pdfContent = '';
         for (Reservation__c reservation : reservations) {
-            pdfContent += reservation.Name + '\n';
+            pdfContent += reservation.Debut__c + '\n';
         }
         return pdfContent;
     }

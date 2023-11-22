@@ -3,6 +3,7 @@ import generatePDF from '@salesforce/apex/PDFController.generatePDF';
 
 export default class ReservationComponent extends LightningElement {
     handleGeneratePDF() {
+        console.log('handleGeneratePDF');
         generatePDF({reservations})
         .then(result => {
             console.log('PDF généré avec succès:', result);
