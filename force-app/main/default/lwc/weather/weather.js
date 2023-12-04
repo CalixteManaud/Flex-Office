@@ -8,10 +8,10 @@ export default class weather extends NavigationMixin(LightningElement) {
     @track weatherData = {};
     @track table = [];
     tables = [];
+    selectedTable;
 
     handleTableSelected(event) {
-        const selectedTableId = event.detail;
-        this.createNewReservation(selectedTableId);
+        this.selectedTable = event.detail;
     }
 
     /**
@@ -193,11 +193,11 @@ export default class weather extends NavigationMixin(LightningElement) {
      * @description : Permet de créer une nouvelle réservation
      */
     async createNewReservation(selectedDay) {
-        if (!selectedDay){
+
+        if (!selectedDay || !this.selectedTable) {
             console.error('Error : selectedDay n\'est pas défini');
             return;
         }
-        console.log('selectedDay :', JSON.stringify(selectedDay));
         const formattedDate = this.formatDate(selectedDay.date);
 
         this[NavigationMixin.Navigate]({
@@ -207,7 +207,7 @@ export default class weather extends NavigationMixin(LightningElement) {
                 actionName: 'new'
             },
             state: {
-                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)},`
+                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)},Reserved_Table__c=${this.selectedTable}`
             }
         });
     }

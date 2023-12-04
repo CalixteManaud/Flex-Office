@@ -1,0 +1,3 @@
+<apex:page standardController="Reservation__c" renderAs="pdf" showHeader="false" applyHtmlTag="false" applyBodyTag="false" sidebar="false">
+    
+</apex:page>

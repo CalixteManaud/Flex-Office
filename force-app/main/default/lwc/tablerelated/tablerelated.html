@@ -1,11 +1,18 @@
 <template>
-    <lightning-card title="Tables Disponibles" icon-name="standard:appointment">
-        <div class="slds-p-around_medium">
-            <template for:each={tables} for:item="table">
-                <div key={table.Id} class="slds-m-around_medium">
-                    <lightning-button label={table.Name} variant="base" onclick={handleTableSelection} data-id={table.Id}></lightning-button>
-                </div>
-            </template>
-        </div>
-    </lightning-card>
+    <div style="height: 300px;">
+        <lightning-datatable
+            key-field="Id"
+            data={tables}
+            show-row-number-column
+            row-number-offset={rowOffset}
+            hide-checkbox-column
+            columns={columns}>
+        </lightning-datatable>
+    </div>
+    <div class="slds-m-around--medium">
+        <lightning-button
+            label="Increase row offset"
+            onclick={increaseRowOffset}>
+        </lightning-button>
+    </div>
 </template>
