@@ -1,1 +1,24 @@
-/* rien */
+.container {
+    display: flex;
+    flex-direction: column;
+}
+
+.slds-wrap {
+    flex-wrap: wrap;
+}
+
+.input-container {
+    padding: 0 20px;
+}
+
+.day-item {
+    cursor: pointer;
+}
+
+.button-container {
+    text-align: center;
+}
+
+.button-container lightning-button {
+    margin-left: 10px;
+}

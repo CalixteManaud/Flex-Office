@@ -1,17 +1,50 @@
-import { LightningElement, track} from 'lwc';
-import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
+import { LightningElement, track, api, wire} from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
+import getTables from '@salesforce/apex/TableController.getTables';
+
+const columns = [
+    { label: 'Sélectionner', type: 'checkbox', innerWidth: 50 },
+    { label: 'Table Name', fieldName: 'Name', type: 'text' },
+    { label: 'Statut', fieldName: 'Statut__c', type: 'text' },
+    { label: 'Salle', fieldName: 'Salle__c', type: 'text' },
+    { label: 'Equipement', fieldName: 'Equipement__c', type: 'text' },
+];
 
 export default class weather extends NavigationMixin(LightningElement) {
     @track currentCity;
     @track weatherData = {};
     @track table = [];
-    tables = [];
+    @track tables = [];
+    columns = columns;
+    @track error;
     selectedTable;
 
-    handleTableSelected(event) {
-        this.selectedTable = event.detail;
+    @wire(getTables)
+    wiredTables(result) {
+        const { data, error } = result;
+        console.log('data :', data);
+        if (data) {
+            this.tables = data;
+            this.error = undefined;
+        } else if (error) {
+            this.error = error;
+            this.tables = [];
+        }
+    }
+
+    handleRowSelection(event) {
+        const selectedRows = event.detail.selectedRows;
+        if (selectedRows.length > 0) {
+            const firstSelectedRow = selectedRows[0];
+            this.selectedTable = firstSelectedRow.Id;
+            console.log('selectedId :', this.selectedTable);
+            console.log('selectedRows :', selectedRows[0]);
+        } else {
+            this.showToast('Attention', 'Veuillez sélectionner une table', 'warning');
+        }
     }
 
     /**
@@ -195,7 +228,7 @@ export default class weather extends NavigationMixin(LightningElement) {
     async createNewReservation(selectedDay) {
 
         if (!selectedDay || !this.selectedTable) {
-            console.error('Error : selectedDay n\'est pas défini');
+            this.showToast('Attention', 'Veuillez sélectionner une table', 'warning');
             return;
         }
         const formattedDate = this.formatDate(selectedDay.date);
@@ -207,7 +240,7 @@ export default class weather extends NavigationMixin(LightningElement) {
                 actionName: 'new'
             },
             state: {
-                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description)},Reserved_Table__c=${this.selectedTable}`
+                defaultFieldValues: `Debut__c=${formattedDate},Weather__c=${JSON.stringify(selectedDay.description).replace(/"/g, '')},Reserved_Table__c=${this.selectedTable}`
             }
         });
     }

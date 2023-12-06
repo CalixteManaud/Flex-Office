@@ -1,0 +1,25 @@
+<apex:page controller="PDFController" renderAs="pdf" showHeader="true" sidebar="false">
+    <apex:form >
+        <table border="1" class="table06" style="font-size: 8px; text-align:center; border-collapse: collapse; width: 101.25%; border: solid 1px #000; margin-top: 10px;">
+            <tr class="dynamicTable">
+            <th scope="col">Date de début</th>                  
+            <th scope="col">Date de fin</th>
+            <th scope="col">Raison</th>
+            <th scope="col">Statut</th>
+            <th scope="col">Table reservé</th>
+            <th score="col">Météo</th>
+            </tr>
+            <apex:repeat value="{!reservations}" var="res">
+            <tr>
+            <td> <apex:outputField value="{!res.Debut__c}"></apex:outputField> </td>
+            <td> <apex:outputField value="{!res.Fin__c}"></apex:outputField> </td>
+            <td> <apex:outputField value="{!res.Raison__c}"></apex:outputField> </td>
+            <td> <apex:outputField value="{!res.Statut__c}"></apex:outputField> </td>
+            <td> <apex:outputField value="{!res.Reserved_Table__r.Name}"></apex:outputField> </td>
+            <td> <apex:outputField value="{!res.Weather__c}"></apex:outputField> </td>
+            
+            </tr>
+            </apex:repeat>
+            </table>
+    </apex:form>
+</apex:page>

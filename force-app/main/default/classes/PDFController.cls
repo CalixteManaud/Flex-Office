@@ -1,19 +1,10 @@
 public with sharing class PDFController {
-    @AuraEnabled
-    public static Blob generatePDF(List<Reservation__c> reservations) {
-        try {
-            String pdfContent = generatePDFContent(reservations);
-            return Blob.valueOf(pdfContent);
-        } catch (Exception e) {
-            throw new AuraHandledException('Erreur lors de la génération du PDF : ' + e.getMessage());
-        }
-    }
-
-    private static String generatePDFContent(List<Reservation__c> reservations) {
-        String pdfContent = '';
-        for (Reservation__c reservation : reservations) {
-            pdfContent += reservation.Debut__c + '\n';
-        }
-        return pdfContent;
+    public static List<Reservation__c> getReservations(){
+        List <Reservation__c> allReservationsByDate = [
+            SELECT Id, Name, Debut__c, Fin__c, Raison__c, Reserved_Table__r.Name, Statut__c, Weather__c 
+            FROM  Reservation__c
+            ORDER BY Debut__c ASC
+            ];
+        return allReservationsByDate;  
     }
 }

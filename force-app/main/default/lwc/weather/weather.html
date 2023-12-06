@@ -1,27 +1,38 @@
 <template>
     <lightning-card title="Choisissez la date en fonction de la météo" icon-name="standard:event">
-        <div class="slds-m-around_medium">
-            <div class="slds-grid slds-wrap slds-gutters">
-                <div class="slds-col slds-size_8-of-8 slds-medium-size_4-of-8">
+        <div class="container slds-m-around_medium">
+            <div class="slds-grid slds-wrap">
+                <div class="input-container slds-col slds-size_12-of-12 slds-medium-size_8-of-12">
                     <div class="slds-p-around_medium">
                         <lightning-input label="Ville actuelle" type="text" name="currentCity" value={currentCity} onchange={handleCityChange}></lightning-input>
                     </div>
                     <div class="slds-m-top_medium">
                         <template for:each={table} for:item="day">
-                            <div key={day.date} class="slds-m-bottom_small">
-                                <p class="slds-text-heading_small slds-box" onclick={handleImageClick} data-date={day.date}>
+                            <div key={day.date} class="day-item slds-m-bottom_small" onclick={handleImageClick} data-date={day.date}>
+                                <p class="slds-text-heading_small slds-box">
                                     Date : {day.date} - Description : {day.description} - Température : {day.temperature} °C
                                 </p>
                             </div>
                         </template>
                     </div>
                 </div>
+
+                <div class="button-container slds-col slds-size_12-of-12 slds-medium-size_4-of-12">
+                    <div class="slds-m-top_medium slds-align_absolute-center">
+                        <lightning-button label="Suivant" variant="success" class="slds-m-left_x-small" onclick={handleSaveReservation}></lightning-button>
+                    </div>
+                </div>
             </div>
 
-            <c-tablerelated tables={tables} onclick={handleTableSelected}></c-tablerelated>
-
-            <div class="slds-m-top_medium slds-grid slds-align_absolute-center">
-                <lightning-button label="Suivant" variant="success" class="slds-m-left_x-small" onclick={handleSaveReservation}></lightning-button>
+            <div class="slds-m-top_medium">
+                <lightning-datatable
+                    key-field="Id"
+                    data={tables}
+                    row-number-offset={rowOffset}
+                    columns={columns}
+                    suppress-bottom-bar
+                    onrowselection={handleRowSelection}>
+                </lightning-datatable>
             </div>
         </div>
     </lightning-card>
