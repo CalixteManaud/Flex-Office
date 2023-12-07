@@ -1,10 +1,8 @@
 import { LightningElement, track, api, wire} from 'lwc';
 import { NavigationMixin } from 'lightning/navigation';
 import { ShowToastEvent } from 'lightning/platformShowToastEvent';
-
 import getWheaterData from '@salesforce/apex/WeatherController.getWeatherByLocation';
 import getTables from '@salesforce/apex/TableController.getTables';
-
 const columns = [
     { label: 'Sélectionner', type: 'checkbox', innerWidth: 50 },
     { label: 'Table Name', fieldName: 'Name', type: 'text' },
